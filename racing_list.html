@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>TCL Games - H5game</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/gamecenter_style150902.css"/>
+    <style type="text/css">
+        <!--
+        body {
+            margin: 45px 0 0;
+        }
+
+        -->
+    </style>
+
+</head>
+<body>
+
+<!-- Game List -->
+<div id="tabSlider" class="tabSlider">
+    <div class="tabSlider-tab">
+        <ul class="tabSlider-hd">
+            <li><span>Trivia</span></li>
+        </ul>
+        <a class="go-back" href="web_game.html">GO BACK</a>
+
+    </div>
+    <!--ad4 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- 首页_自适应_TCL_20170731 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8300473319276375"
+         data-ad-slot="1789597542"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+    <div class="tabSlider-bd">
+        <div class="tabSlider-wrap">
+            <div class="tabSlider-box curr">
+                <div class="top-game" onclick="do_his('mngef','Mini Golf')"><a class="game"
+                                                                         href="http://app.ht5game.com/game/tcl/mngef/play.html">
+                    <div class="game-icon-layer"><img class="icon-space-img"
+                                                      src="images/399df49cb23ddeba77ffb95b815295dc.png"/><img
+                            class="game-icon"
+                            src="http://app.ht5game.com/Common/images/tcl/mngef.jpg"/></div>
+                    <div class="game-info">
+                        <div class="game-name"><span class="top-first">1</span>Mini Golf</div>
+                        <div class="users"></div>
+                        <div class="favouriters" style="display:none"></div>
+                    </div>
+                    <div class="play">PLAY</div>
+                    <div class="clear"></div>
+                </a>
+
+                </div>
+                <div class="top-game" onclick="do_his('ysjd','Eggs & cars')"><a class="game"
+                                                                                    href="http://app.ht5game.com/game/tcl/ysjd/play.html">
+                    <div class="game-icon-layer"><img class="icon-space-img"
+                                                      src="images/399df49cb23ddeba77ffb95b815295dc.png"/><img
+                            class="game-icon"
+                            src="http://app.ht5game.com/Common/images/tcl/ysjd.jpg"/></div>
+                    <div class="game-info">
+                        <div class="game-name"><span class="top-second">2</span>Eggs & cars</div>
+                        <div class="users"></div>
+                        <div class="favouriters" style="display:none"></div>
+                    </div>
+                    <div class="play">PLAY</div>
+                    <div class="clear"></div>
+                </a>
+                    <div class="favourite favourite-none-img" style="display:none">Favourite</div>
+                </div>
+                <div class="top-game" onclick="do_his('tyty','Doodle jump')"><a class="game"
+                                                                                      href="http://app.ht5game.com/game/tcl/tyty/play.html">
+                    <div class="game-icon-layer"><img class="icon-space-img"
+                                                      src="images/399df49cb23ddeba77ffb95b815295dc.png"/><img
+                            class="game-icon"
+                            src="http://app.ht5game.com/Common/images/tcl/tyty.jpg"/></div>
+                    <div class="game-info">
+                        <div class="game-name"><span class="top-third">3</span>Doodle jump</div>
+                        <div class="users"></div>
+                        <div class="favouriters" style="display:none"></div>
+                    </div>
+                    <div class="play">PLAY</div>
+                    <div class="clear"></div>
+                </a>
+                    <div class="favourite favourite-none-img" style="display:none">Favourite</div>
+                </div>
+                <div class="top-game" onclick="do_his('wxxs','Infinity')"><a class="game"
+                                                                                    href="http://app.ht5game.com/game/tcl/wxxs/play.html">
+                    <div class="game-icon-layer"><img class="icon-space-img"
+                                                      src="images/399df49cb23ddeba77ffb95b815295dc.png"/><img
+                            class="game-icon"
+                            src="http://app.ht5game.com/Common/images/tcl/wxxs.jpg"/>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name"><span class="top-others">4</span>Infinity</div>
+                        <div class="users"></div>
+                        <div class="favouriters" style="display:none"></div>
+                    </div>
+                    <div class="play">PLAY</div>
+                    <div class="clear"></div>
+                </a>
+                    <div class="favourite favourite-none-img" style="display:none">Favourite</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading More -->
+<div class="loading-layer" style="display:none">
+    <div class="loading-more">
+        <div class="loading-round">Round</div>
+        <div class="loading-text">Loading..</div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- TabJS -->
+<script src="js/webgame_zepto.js"></script>
+<script src="js/webgame_tabslider150403.js"></script>
+<script>
+    //init storage
+    var storage = window.localStorage;
+    var favkey = "favkey";
+    var hiskey = "hiskey";
+    var hisname = "hisname";
+    var favarr = [];
+    var hisarr = [];
+    var number = "number";
+    var hisgame;
+    // TAB Slider
+    $(function () {
+        app.TabSlider('#tabSlider', {type: 'line'});
+    });
+
+    // Favourite
+    function favourite() {
+        $("div.favourite").removeClass("favourite-none-img").addClass("favourite-img");
+    }
+    // 历史记录
+    function do_his(n, m) {
+        if ($.inArray(n, hisarr) == -1) {
+            if (storage.getItem(number) == undefined) {
+                i = 0;
+            }
+            for (var j = 1; j <= storage.getItem(number) / 1; j++) {
+                if (window["hiskey" + j] == undefined) {
+                    window["hiskey" + j] = "hiskey" + j;
+                }
+                console.log(storage.getItem(hiskey + j));
+                if (storage.getItem(hiskey + j) == '"' + n + '"') {
+
+                    hisgame = true;
+                }
+            }
+            if (hisgame != true) {
+                var i = storage.getItem(number);
+                i++;
+                storage.setItem(number, i);
+                storage.setItem(hiskey + i, JSON.stringify(n));
+                storage.setItem(hisname + i, JSON.stringify(m));
+            }
+
+        }
+
+    }
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-61066345-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
